@@ -7,6 +7,8 @@ interface UseKeyboardNavOptions {
   onLast: () => void;
   onQuit: () => void;
   onJumpTo: (slide: number) => void;
+  onGoToSlide?: () => void;
+  isActive?: boolean;
 }
 
 export function useKeyboardNav({
@@ -16,6 +18,8 @@ export function useKeyboardNav({
   onLast,
   onQuit,
   onJumpTo,
+  onGoToSlide,
+  isActive = true,
 }: UseKeyboardNavOptions): void {
   useInput((input, key) => {
     // Next slide: →, l, n, Space, Enter
@@ -60,11 +64,17 @@ export function useKeyboardNav({
       return;
     }
 
+    // Go to slide input: 0
+    if (input === '0' && onGoToSlide) {
+      onGoToSlide();
+      return;
+    }
+
     // Jump to slide: 1-9
     const num = parseInt(input, 10);
     if (!isNaN(num) && num >= 1 && num <= 9) {
       onJumpTo(num);
       return;
     }
-  });
+  }, { isActive });
 }

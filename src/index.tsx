@@ -121,7 +121,7 @@ export function main(): void {
 }
 
 // Run if executed directly
-const isDirectRun = process.argv[1]?.includes('index.tsx') ||
+const isDirectRun = process.argv[1]?.includes('index') ||
                     process.argv[1]?.includes('cli-present');
 if (isDirectRun) {
   main();

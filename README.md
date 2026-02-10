@@ -49,6 +49,7 @@ npx tsx src/index.tsx slides.md --bullet arrow --padding 2
 | `g` | First slide |
 | `G` | Last slide |
 | `1-9` | Jump to slide |
+| `0` | Go to slide (opens input) |
 | `q` `Escape` | Quit |
 
 ## Slide Format

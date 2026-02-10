@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "A CLI presentation tool that displays Markdown files as terminal slides",
   "type": "module",
-  "main": "src/index.tsx",
+  "main": "dist/index.js",
   "bin": {
-    "cli-present": "./bin/cli-present.js"
+    "cli-present": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "vite build",
+    "prepublishOnly": "npm run build",
     "start": "tsx src/index.tsx",
     "demo": "tsx src/index.tsx examples/demo.md"
   },
@@ -31,6 +36,7 @@
     "@types/node": "^20.11.0",
     "@types/react": "^18.2.48",
     "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vite": "^7.3.1"
   }
 }
