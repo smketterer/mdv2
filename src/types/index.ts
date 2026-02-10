@@ -57,9 +57,18 @@ export interface TerminalSize {
 
 export type CodeTheme = 'default' | 'monokai' | 'dracula' | 'github' | 'nord';
 
+export type BulletStyle = 'disc' | 'circle' | 'square' | 'dash' | 'arrow';
+
+export interface PresentationConfig {
+  padding: number;
+  bulletStyle: BulletStyle;
+}
+
 export interface CLIOptions {
   start?: number;
   border?: BorderStyle;
   theme?: string;
   codeTheme?: CodeTheme;
+  padding?: number;
+  bulletStyle?: BulletStyle;
 }

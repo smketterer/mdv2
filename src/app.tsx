@@ -3,13 +3,15 @@ import { Box, Text } from 'ink';
 import { Presentation } from './components/Presentation.js';
 import { parseMarkdown } from './utils/parseMarkdown.js';
 import { ThemeProvider } from './context/ThemeContext.js';
-import type { BorderStyle, CodeTheme } from './types/index.js';
+import type { BorderStyle, CodeTheme, BulletStyle } from './types/index.js';
 
 interface AppProps {
   content: string;
   startSlide?: number;
   borderStyle?: BorderStyle;
   theme?: CodeTheme;
+  padding?: number;
+  bulletStyle?: BulletStyle;
   onQuit: () => void;
 }
 
@@ -18,6 +20,8 @@ export function App({
   startSlide = 1,
   borderStyle = 'rounded',
   theme = 'default',
+  padding = 1,
+  bulletStyle = 'disc',
   onQuit,
 }: AppProps): React.ReactElement {
   const slides = parseMarkdown(content);
@@ -32,7 +36,7 @@ export function App({
   }
 
   return (
-    <ThemeProvider themeName={theme}>
+    <ThemeProvider themeName={theme} padding={padding} bulletStyle={bulletStyle}>
       <Presentation
         slides={slides}
         startSlide={startSlide}

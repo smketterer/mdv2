@@ -4,10 +4,13 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { Command } from 'commander';
 import { App } from './app.js';
-import type { BorderStyle, CodeTheme } from './types/index.js';
+import type { BorderStyle, CodeTheme, BulletStyle } from './types/index.js';
 import { codeThemeNames } from './themes/codeThemes.js';
 
 const program = new Command();
+
+const validBorderStyles = ['single', 'double', 'rounded', 'bold'];
+const validBulletStyles = ['disc', 'circle', 'square', 'dash', 'arrow'];
 
 program
   .name('cli-present')
@@ -25,7 +28,23 @@ program
     'Color theme (default, monokai, dracula, github, nord)',
     'default'
   )
-  .action((file: string, options: { start: string; border: string; theme: string }) => {
+  .option(
+    '-p, --padding <number>',
+    'Padding between content and border',
+    '1'
+  )
+  .option(
+    '--bullet <style>',
+    'Bullet style (disc, circle, square, dash, arrow)',
+    'disc'
+  )
+  .action((file: string, options: {
+    start: string;
+    border: string;
+    theme: string;
+    padding: string;
+    bullet: string;
+  }) => {
     const filePath = resolve(process.cwd(), file);
 
     if (!existsSync(filePath)) {
@@ -47,7 +66,6 @@ program
       process.exit(1);
     }
 
-    const validBorderStyles = ['single', 'double', 'rounded', 'bold'];
     if (!validBorderStyles.includes(options.border)) {
       console.error(
         `Error: --border must be one of: ${validBorderStyles.join(', ')}`
@@ -62,8 +80,22 @@ program
       process.exit(1);
     }
 
+    const padding = parseInt(options.padding, 10);
+    if (isNaN(padding) || padding < 0 || padding > 10) {
+      console.error('Error: --padding must be a number between 0 and 10');
+      process.exit(1);
+    }
+
+    if (!validBulletStyles.includes(options.bullet)) {
+      console.error(
+        `Error: --bullet must be one of: ${validBulletStyles.join(', ')}`
+      );
+      process.exit(1);
+    }
+
     const borderStyle = options.border as BorderStyle;
     const theme = options.theme as CodeTheme;
+    const bulletStyle = options.bullet as BulletStyle;
 
     const { unmount, waitUntilExit } = render(
       <App
@@ -71,6 +103,8 @@ program
         startSlide={startSlide}
         borderStyle={borderStyle}
         theme={theme}
+        padding={padding}
+        bulletStyle={bulletStyle}
         onQuit={() => {
           unmount();
         }}

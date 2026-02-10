@@ -3,6 +3,7 @@ import { Box, Text } from 'ink';
 import type { Tokens } from 'marked';
 import { TextFormatting } from './TextFormatting.js';
 import { decodeHtml } from '../../utils/decodeHtml.js';
+import { useBulletChar } from '../../context/ThemeContext.js';
 
 interface ListProps {
   token: Tokens.List;
@@ -10,11 +11,12 @@ interface ListProps {
 
 export function List({ token }: ListProps): React.ReactElement {
   const { ordered, start, items } = token;
+  const bulletChar = useBulletChar();
 
   return (
     <Box flexDirection="column" marginBottom={1}>
       {items.map((item, index) => {
-        const bullet = ordered ? `${(start || 1) + index}.` : '•';
+        const bullet = ordered ? `${(start || 1) + index}.` : bulletChar;
         return (
           <Box key={index} paddingLeft={1}>
             <Text>{bullet} </Text>

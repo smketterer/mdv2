@@ -21,6 +21,8 @@ npx tsx src/index.tsx <file.md> [options]
 | `-s, --start <n>` | Start at slide number | 1 |
 | `-b, --border <style>` | Border style | rounded |
 | `-t, --theme <theme>` | Color theme | default |
+| `-p, --padding <n>` | Padding between content and border | 1 |
+| `--bullet <style>` | Bullet style for lists | disc |
 
 ### Examples
 
@@ -33,6 +35,9 @@ npx tsx src/index.tsx slides.md --start 3
 
 # Use monokai theme with bold borders
 npx tsx src/index.tsx slides.md --theme monokai --border bold
+
+# Use arrow bullets with extra padding
+npx tsx src/index.tsx slides.md --bullet arrow --padding 2
 ```
 
 ## Keyboard Navigation
@@ -102,6 +107,16 @@ Five color themes are available:
 | `double` | `╔═╗║╚╝` |
 | `rounded` | `╭─╮│╰╯` |
 | `bold` | `┏━┓┃┗┛` |
+
+## Bullet Styles
+
+| Style | Character |
+|-------|-----------|
+| `disc` | • |
+| `circle` | ○ |
+| `square` | ■ |
+| `dash` | - |
+| `arrow` | → |
 
 ## Supported Markdown
 
