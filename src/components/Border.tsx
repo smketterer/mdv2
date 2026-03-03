@@ -82,11 +82,19 @@ export function Border({
 
       {/* Content with side borders */}
       <Box flexDirection="row" height={innerHeight}>
-        <Text color={color}>{chars.vertical}</Text>
+        <Box flexDirection="column">
+          {Array.from({ length: innerHeight }).map((_, i) => (
+            <Text key={i} color={color}>{chars.vertical}</Text>
+          ))}
+        </Box>
         <Box width={innerWidth} flexDirection="column" overflow="hidden">
           {children}
         </Box>
-        <Text color={color}>{chars.vertical}</Text>
+        <Box flexDirection="column">
+          {Array.from({ length: innerHeight }).map((_, i) => (
+            <Text key={i} color={color}>{chars.vertical}</Text>
+          ))}
+        </Box>
       </Box>
 
       {/* Bottom border */}
