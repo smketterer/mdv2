@@ -137,6 +137,22 @@ cli-present slides.md --border double
 
 ---
 
+## Bullet Styles
+
+| Style    | Character |
+| -------- | --------- |
+| `disc`   | •         |
+| `circle` | ○         |
+| `square` | ■         |
+| `dash`   | -         |
+| `arrow`  | →         |
+
+```bash
+cli-present slides.md --bullet arrow
+```
+
+---
+
 ## Command Line Options
 
 ```bash
@@ -145,6 +161,8 @@ cli-present <file.md> [options]
   -s, --start <n>      Start at slide n
   -b, --border <style> Border style
   -t, --theme <name>   Color theme
+  -p, --padding <n>    Content padding
+  --bullet <style>     Bullet style
   -h, --help           Show help
 ```
 
