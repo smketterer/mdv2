@@ -98,6 +98,7 @@ print(greet("World"))
 | First slide    | `g`                         |
 | Last slide     | `G`                         |
 | Jump to slide  | `1`–`9`                     |
+| Go to slide    | `0`                         |
 | Quit           | `q` `Escape`                |
 
 ---
