@@ -120,9 +120,4 @@ export function main(): void {
   program.parse();
 }
 
-// Run if executed directly
-const isDirectRun = process.argv[1]?.includes('index') ||
-                    process.argv[1]?.includes('cli-present');
-if (isDirectRun) {
-  main();
-}
+main();

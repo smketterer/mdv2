@@ -1,17 +1,17 @@
 {
-  "name": "cli-present",
+  "name": "mdv2",
   "version": "1.0.0",
   "description": "A CLI presentation tool that displays Markdown files as terminal slides",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "cli-present": "./dist/index.js"
+    "mdv2": "./dist/index.js"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && chmod +x dist/index.js",
     "prepublishOnly": "npm run build",
     "start": "tsx src/index.tsx",
     "demo": "tsx src/index.tsx examples/demo.md"
