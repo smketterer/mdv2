@@ -30,7 +30,7 @@ export function Blockquote({ token }: BlockquoteProps): React.ReactElement {
   const lines = text.split('\n');
 
   return (
-    <Box flexDirection="column" marginY={1}>
+    <Box flexDirection="column" marginBottom={1}>
       {lines.map((line, index) => (
         <Box key={index}>
           <Text color={uiTheme.blockquoteBorder}>│ </Text>

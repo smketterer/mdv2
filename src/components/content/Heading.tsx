@@ -21,7 +21,7 @@ export function Heading({ token }: HeadingProps): React.ReactElement {
   const prefix = depth === 1 ? '' : '#'.repeat(depth) + ' ';
 
   return (
-    <Box marginBottom={depth === 1 ? 1 : 0}>
+    <Box marginBottom={depth <= 2 ? 1 : 0}>
       <Text bold color={getColor()}>
         {prefix}{decodeHtml(text)}
       </Text>

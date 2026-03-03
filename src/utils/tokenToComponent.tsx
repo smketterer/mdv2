@@ -6,7 +6,7 @@ import { CodeBlock } from '../components/content/CodeBlock.js';
 import { List } from '../components/content/List.js';
 import { Blockquote } from '../components/content/Blockquote.js';
 import { Table } from '../components/content/Table.js';
-import { Box, Text } from 'ink';
+import { Text } from 'ink';
 import { decodeHtml } from './decodeHtml.js';
 
 export function tokenToComponent(token: Token, key: number): React.ReactNode {
@@ -27,7 +27,7 @@ export function tokenToComponent(token: Token, key: number): React.ReactNode {
       return <Blockquote key={key} token={token as Tokens.Blockquote} />;
 
     case 'space':
-      return <Box key={key} height={1} />;
+      return null;
 
     case 'html':
       // Skip HTML tokens in terminal

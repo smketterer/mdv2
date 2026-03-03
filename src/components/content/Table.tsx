@@ -167,7 +167,7 @@ export function Table({ token }: TableProps): React.ReactElement {
   };
 
   return (
-    <Box flexDirection="column" marginY={1}>
+    <Box flexDirection="column" marginBottom={1}>
       <Text color={uiTheme.border}>{topBorder}</Text>
       <Text>
         <Text color={uiTheme.border}>{chars.vertical}</Text>

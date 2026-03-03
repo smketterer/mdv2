@@ -1,42 +1,45 @@
 # CLI-Present
 
-A terminal-based presentation tool built with React Ink
+_A terminal-based presentation tool for developers who live in the command line._
 
 ---
 
 ## Text Formatting
 
-Regular text with **bold**, *italic*, and ***bold italic*** styles.
+> "Markdown you already know. Now it renders beautifully."
 
-You can also use ~~strikethrough~~ for deleted text.
+**Bold** for emphasis, _italic_ for tone, **_bold italic_** for when you mean it.
 
-Inline `code` looks like this.
+~~Strikethrough~~ for what didn't make the cut. Inline `code` for technical terms.
 
 ---
 
 ## Links
 
-Check out these resources:
+Resources render as readable references:
 
-- [React](https://react.dev) - UI framework
-- [Ink](https://github.com/vadimdemedes/ink) - React for CLIs
-- [Marked](https://marked.js.org) - Markdown parser
+- [React](https://react.dev) — UI framework
+- [Ink](https://github.com/vadimdemedes/ink) — React for CLIs
+- [Marked](https://marked.js.org) — Markdown parser
 
 ---
 
 ## Lists
 
 ### Unordered
+
 - First item
 - Second item with **bold**
 - Third item with `code`
 
 ### Ordered
-1. Step one
-2. Step two
-3. Step three
+
+1. Step one — _beginning_
+2. Step two — _middle_
+3. Step three — _done_
 
 ### Nested
+
 - Parent item
   - Child item
   - Another child
@@ -46,17 +49,13 @@ Check out these resources:
 
 ## Code Blocks
 
-JavaScript:
-
 ```javascript
 function greet(name) {
   return `Hello, ${name}!`;
 }
 
-console.log(greet('World'));
+console.log(greet("World"));
 ```
-
-Python:
 
 ```python
 def greet(name):
@@ -65,16 +64,18 @@ def greet(name):
 print(greet("World"))
 ```
 
+**Multiple languages.** Syntax highlighted automatically.
+
 ---
 
 ## Tables
 
-| Feature | Status | Notes |
-|---------|--------|-------|
-| Headings | Done | h1-h6 supported |
-| Lists | Done | Ordered & unordered |
-| Code | Done | Syntax highlighting |
-| Tables | Done | Basic support |
+| Feature  | Status | Notes               |
+| -------- | ------ | ------------------- |
+| Headings | `Done` | h1–h6 supported     |
+| Lists    | `Done` | Ordered & unordered |
+| Code     | `Done` | Syntax highlighted  |
+| Tables   | `Done` | Full alignment      |
 
 ---
 
@@ -90,43 +91,44 @@ print(greet("World"))
 
 ## Keyboard Navigation
 
-| Key | Action |
-|-----|--------|
-| `→` `l` `n` `Space` `Enter` | Next slide |
-| `←` `h` `p` `Backspace` | Previous slide |
-| `g` | First slide |
-| `G` | Last slide |
-| `1-9` | Jump to slide |
-| `q` `Escape` | Quit |
+| Action         | Keys                        |
+| -------------- | --------------------------- |
+| Next slide     | `→` `l` `n` `Space` `Enter` |
+| Previous slide | `←` `h` `p` `Backspace`     |
+| First slide    | `g`                         |
+| Last slide     | `G`                         |
+| Jump to slide  | `1`–`9`                     |
+| Quit           | `q` `Escape`                |
 
 ---
 
 ## Themes
 
-Available color themes:
-
-| Theme | Style |
-|-------|-------|
+| Theme     | Style                   |
+| --------- | ----------------------- |
 | `default` | Classic terminal colors |
-| `monokai` | Vibrant dark theme |
+| `monokai` | Vibrant dark theme      |
 | `dracula` | Purple and pink accents |
-| `github` | Clean and professional |
-| `nord` | Arctic blue palette |
+| `github`  | Clean and professional  |
+| `nord`    | Arctic blue palette     |
 
 ```bash
-cli-present slides.md --theme monokai
+cli-present slides.md --theme dracula
 ```
 
 ---
 
 ## Border Styles
 
-| Style | Look |
-|-------|------|
-| `rounded` | Smooth corners (default) |
-| `single` | Basic box drawing |
-| `double` | Double-line borders |
-| `bold` | Thick borders |
+```
+rounded  ╭──────╮   single  ┌──────┐
+         │      │           │      │
+         ╰──────╯           └──────┘
+
+double   ╔══════╗   bold    ┏━━━━━━┓
+         ║      ║           ┃      ┃
+         ╚══════╝           ┗━━━━━━┛
+```
 
 ```bash
 cli-present slides.md --border double
@@ -139,10 +141,9 @@ cli-present slides.md --border double
 ```bash
 cli-present <file.md> [options]
 
-Options:
   -s, --start <n>      Start at slide n
   -b, --border <style> Border style
-  -t, --theme <theme>  Color theme
+  -t, --theme <name>   Color theme
   -h, --help           Show help
 ```
 
@@ -150,6 +151,8 @@ Options:
 
 # Thank You!
 
-Press `q` to exit
+> "If it runs in a terminal, it belongs here."
 
-*Built with React, Ink, and Marked*
+_Built with React, Ink, and Marked_
+
+Press `q` to exit

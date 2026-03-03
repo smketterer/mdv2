@@ -17,7 +17,7 @@ export function CodeBlock({ token }: CodeBlockProps): React.ReactElement {
   const hasSyntaxHighlighting = lang && lang.trim() !== '';
 
   return (
-    <Box flexDirection="column" marginY={1}>
+    <Box flexDirection="column" marginBottom={1}>
       {hasSyntaxHighlighting && (
         <Text dimColor>[{lang}]</Text>
       )}
