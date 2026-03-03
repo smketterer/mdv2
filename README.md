@@ -79,13 +79,6 @@ function hello() {
 }
 ```
 
----
-
-> "Blockquotes work too."
-
----
-
-# The End
 ```
 
 ## Themes
